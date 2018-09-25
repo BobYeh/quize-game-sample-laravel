@@ -15,3 +15,5 @@ Route::get('/', function () {
     //return view('welcome');
     return 'hello world';
 });
+
+Route::get('getQuize/{id}', 'QuizeController@getQuize');
