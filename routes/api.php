@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::group(['namespace' => 'Api'], function($router)
+{
+	$router->get('quizzes/get', 'QuizzesController@get');	
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
