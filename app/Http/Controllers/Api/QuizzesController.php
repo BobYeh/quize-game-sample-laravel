@@ -23,9 +23,15 @@ class QuizzesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $question = $request['question'];
+        $option1 = $request['option1'];
+        $option2 = $request['option2'];
+        $option3 = $request['option3'];
+        $answer = $request['answer'];
+
+        return Quize::addQuize($question, $option1, $option2, $option3, $answer);
     }
 
     /**
@@ -86,7 +92,7 @@ class QuizzesController extends Controller
 
     public function get(Request $request)
     {
-        $quizeId = $request['quizeid'];
+        $quizeId = $request['quize_id'];
 
        return Quize::where('id', $quizeId)->get();
     }

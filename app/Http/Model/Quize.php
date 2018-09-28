@@ -12,4 +12,17 @@ class Quize extends Model
     {
     	return Quize::orderByRaw('RAND()')->take($count)->get();
     }
+
+    public static function addQuize($question, $option1, $option2, $option3, $answer)
+    {
+    	 $id = Quize::insertGetId([
+    	 	'question' => $question,
+    	 	'option1' => $option1,
+    	 	'option2' => $option2,
+    	 	'option3' => $option3,
+    	 	'answer' => $answer,
+    	 ]);
+
+    	 return $id;
+    }
 }

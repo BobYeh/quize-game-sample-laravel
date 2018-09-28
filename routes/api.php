@@ -17,6 +17,7 @@ Route::group(['namespace' => 'Api'], function($router)
 {
 	$router->get('quizzes/get', 'QuizzesController@get');
 	$router->get('quizzes/getRandomQuizzes', 'QuizzesController@getRandomQuizzes');
+	$router->post('quizzes/create', 'QuizzesController@create');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
