@@ -86,8 +86,15 @@ class QuizzesController extends Controller
 
     public function get(Request $request)
     {
-        $quizeId = $request['QuizeId'];
+        $quizeId = $request['quizeid'];
 
        return Quize::where('id', $quizeId)->get();
+    }
+
+    public function getRandomQuizzes(Request $request)
+    {
+        $count = $request['count'];
+
+        return Quize::getRandomQuizzes($count);
     }
 }
